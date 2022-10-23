@@ -1,0 +1,21 @@
+.form {
+  background-color: #dfe1e5;
+  border-radius: 10px;
+  display: flex;
+}
+
+.form__input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 16px;
+  padding: 1rem;
+  flex: 1;
+}
+
+.btn-submit {
+  border: none;
+  padding: 1rem;
+  border-radius: 0 10px 10px 0;
+  font-size: 16px;
+}
