@@ -4,8 +4,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Todos</h1>
-      <Form />
+      <main>
+        <div className='todoListContainer'>
+          <h1>Todos</h1>
+          <Form />
+        </div>
+      </main>
+
     </div>
   )
 }
