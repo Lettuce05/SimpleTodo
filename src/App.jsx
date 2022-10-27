@@ -1,6 +1,7 @@
 import './App.css'
 import Form from './components/Form/Form';
 import TodoList from './components/TodoList/TodoList';
+import EditModal from './components/EditModal/EditModal';
 function App() {
 
   return (
@@ -12,7 +13,7 @@ function App() {
           <TodoList />
         </div>
       </main>
-
+      <EditModal />
     </div>
   )
 }
