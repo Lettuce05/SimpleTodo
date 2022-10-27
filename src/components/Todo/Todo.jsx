@@ -3,11 +3,12 @@ import { store } from '../../store';
 
 export default function Todo({ todo }) {
   const setTodoStatus = store((state) => state.todo(state => state.setTodoStatus));
+  const removeTodo = store((state) => state.todo(state => state.removeTodo));
   const { text, completed, id } = todo;
 
   return (
     <div className='todo'>
-      
+
       <div>
         <label className='todo__checkbox'>
           <input type="checkbox" checked={completed} onChange={() => setTodoStatus(id)} />
@@ -15,11 +16,11 @@ export default function Todo({ todo }) {
           <span className='todo__customCheckbox'></span>
         </label>
       </div>
-      
+
       <div>
-        <button>trash</button>
+        <button onClick={() => removeTodo(id)}>trash</button>
       </div>
-      
+
     </div>
   )
 }
