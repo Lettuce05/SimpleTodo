@@ -3,7 +3,9 @@ import { store } from '../../store';
 import Todo from '../Todo/Todo';
 
 export default function TodoList() {
+  // import todos from global state
   const todos = store(state => state.todo(state => state.todos));
+
   return (
     <div>
       <ul className='todolist'>

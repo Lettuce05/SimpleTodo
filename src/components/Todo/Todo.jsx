@@ -2,8 +2,10 @@ import './Todo.css';
 import { store } from '../../store';
 
 export default function Todo({ todo }) {
+  // import state functions
   const setTodoStatus = store((state) => state.todo(state => state.setTodoStatus));
   const removeTodo = store((state) => state.todo(state => state.removeTodo));
+  // destructure todo prop
   const { text, completed, id } = todo;
 
   return (
