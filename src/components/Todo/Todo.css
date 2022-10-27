@@ -8,6 +8,11 @@
   margin-bottom: 1rem;
 }
 
+.todo div {
+  display: flex;
+  align-items: center;
+}
+
 .todo__checkbox {
   position: relative;
   cursor: pointer;
@@ -76,4 +81,9 @@
 /* Cross out todo text when checkbox is checked */
 .todo__checkbox input:checked ~ .todo__text {
   text-decoration: line-through;
+}
+
+.btn-trash {
+  border-color: transparent;
+  border-radius: 5px;
 }

@@ -1,5 +1,6 @@
 import './Todo.css';
 import { store } from '../../store';
+import { Trash } from '../../Icons';
 
 export default function Todo({ todo }) {
   // import state functions
@@ -20,7 +21,7 @@ export default function Todo({ todo }) {
       </div>
 
       <div>
-        <button onClick={() => removeTodo(id)}>trash</button>
+        <button className='btn-trash' onClick={() => removeTodo(id)}><Trash size={24} color={"gray"} /></button>
       </div>
 
     </div>
