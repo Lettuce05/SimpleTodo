@@ -21,3 +21,8 @@
   font-size: 16px;
   background-color: #e9e9ed;
 }
+
+.btn-submit:hover{
+  background-color: #b8b8bc;
+  cursor: pointer;
+}

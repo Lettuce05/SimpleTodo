@@ -1,9 +1,9 @@
 import './Form.css';
 import { store } from '../../store';
 export default function Form() {
-  // import form input state from global state
+  // get input state from global state
   const inputText = store((state) => state.form(state => state.inputText));
-  // import state functions
+  // get reference to state functions
   const setInputText = store((state) => state.form(state => state.setInputText));
   const addTodo = store((state) => state.todo(state => state.addTodo));
 

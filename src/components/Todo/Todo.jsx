@@ -3,9 +3,10 @@ import { store } from '../../store';
 import { Trash } from '../../Icons';
 
 export default function Todo({ todo }) {
-  // import state functions
+  // get state functions
   const setTodoStatus = store((state) => state.todo(state => state.setTodoStatus));
   const removeTodo = store((state) => state.todo(state => state.removeTodo));
+  const openModal = store((state) => state.editModal(state => state.openModal));
   // destructure todo prop
   const { text, completed, id } = todo;
 
@@ -21,6 +22,7 @@ export default function Todo({ todo }) {
       </div>
 
       <div>
+        <button className='btn-trash' onClick={() => openModal(id)}><Trash size={24} color={"gray"} /></button>
         <button className='btn-trash' onClick={() => removeTodo(id)}><Trash size={24} color={"gray"} /></button>
       </div>
 
