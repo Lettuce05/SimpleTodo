@@ -22,7 +22,7 @@ export default function Todo({ todo }) {
       </div>
 
       <div>
-        <button className='btn' onClick={() => openModal(id)}><Pencil size={22} color={"gray"} /></button>
+        <button className='btn' onClick={() => openModal(id, text)}><Pencil size={22} color={"gray"} /></button>
         <button className='btn' onClick={() => removeTodo(id)}><Trash size={24} color={"gray"} /></button>
       </div>
 

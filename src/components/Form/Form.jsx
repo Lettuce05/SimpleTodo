@@ -21,7 +21,7 @@ export default function Form() {
   */
   function handleSubmit(e) {
     e.preventDefault();
-    addTodo(inputText);
+    addTodo(inputText.trim());
     setInputText("");
   }
 
