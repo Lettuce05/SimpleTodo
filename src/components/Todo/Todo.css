@@ -83,12 +83,18 @@
   text-decoration: line-through;
 }
 
-.btn-trash {
+.btn {
   border-color: transparent;
   border-radius: 5px;
   background-color: #e9e9ed;
+  height: 36px;
+  weight: 36px;
 }
-.btn-trash:hover{
+.btn:hover{
   background-color: #b8b8bc;
   cursor: pointer;
+}
+
+.btn:first-child {
+  margin-right: 10px;
 }

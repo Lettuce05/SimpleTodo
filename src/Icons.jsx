@@ -12,3 +12,9 @@ export function Close({color}) {
     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><title /><g data-name="Layer 2" id="Layer_2" fill={color}><path d="M4,29a1,1,0,0,1-.71-.29,1,1,0,0,1,0-1.42l24-24a1,1,0,1,1,1.42,1.42l-24,24A1,1,0,0,1,4,29Z" /><path d="M28,29a1,1,0,0,1-.71-.29l-24-24A1,1,0,0,1,4.71,3.29l24,24a1,1,0,0,1,0,1.42A1,1,0,0,1,28,29Z" /></g><g id="frame"><rect style={{ fill: "none" }} height="32" width="32" /></g></svg>
   )
 }
+
+export function Pencil({color, size}){
+  return (
+    <svg height={size} version="1.1" viewBox="0 0 18 18" width={size} xmlns="http://www.w3.org/2000/svg" ><title/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill={color} id="Core" transform="translate(-213.000000, -129.000000)"><g id="create" transform="translate(213.000000, 129.000000)"><path d="M0,14.2 L0,18 L3.8,18 L14.8,6.9 L11,3.1 L0,14.2 L0,14.2 Z M17.7,4 C18.1,3.6 18.1,3 17.7,2.6 L15.4,0.3 C15,-0.1 14.4,-0.1 14,0.3 L12.2,2.1 L16,5.9 L17.7,4 L17.7,4 Z" id="Shape"/></g></g></g></svg>
+  )
+}

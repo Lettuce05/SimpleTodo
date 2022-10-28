@@ -1,6 +1,6 @@
 import './Todo.css';
 import { store } from '../../store';
-import { Trash } from '../../Icons';
+import { Trash, Pencil } from '../../Icons';
 
 export default function Todo({ todo }) {
   // get state functions
@@ -22,8 +22,8 @@ export default function Todo({ todo }) {
       </div>
 
       <div>
-        <button className='btn-trash' onClick={() => openModal(id)}><Trash size={24} color={"gray"} /></button>
-        <button className='btn-trash' onClick={() => removeTodo(id)}><Trash size={24} color={"gray"} /></button>
+        <button className='btn' onClick={() => openModal(id)}><Pencil size={22} color={"gray"} /></button>
+        <button className='btn' onClick={() => removeTodo(id)}><Trash size={24} color={"gray"} /></button>
       </div>
 
     </div>
