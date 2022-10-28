@@ -6,9 +6,13 @@ export default function EditModal() {
   return (
     <div className='modal'>
       <div className='modal__content'>
-        <button className='btn-close'><Close color={"gray"} /></button>
+        <div className='modal__header'>
+          <h2>Edit Todo</h2>
+          <button className='btn-close'><Close color={"#000"} /></button>
+        </div>
+        
         <input className='modal__input' />
-        <button className='btn-save'></button>
+        <button className='btn-save'>Save</button>
       </div>
     </div>
   )
