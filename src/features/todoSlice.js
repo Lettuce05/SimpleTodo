@@ -8,9 +8,21 @@ if (typeof (Storage) !== "undefined") {
   localStorageSupport = true;
 }
 
+/*
+  saveTodosToLocal: saves specified todos to local storage
+  @param todos - todos to save to local storage
+*/
+function saveTodosToLocal(todos) {
+  // check if local storage is supported
+  if (localStorageSupport) {
+    // save todos to local storage
+    localStorage.todos = JSON.stringify(todos);
+  }
+}
 
 // todoSlice: The slice of state that holds all state/logic associated with the todos/todolist
 export const todoSlice = create((set) => ({
+  // check local storage for initial state or set to empty array if local storage todos is undefined
   todos: localStorageSupport && localStorage.todos ? JSON.parse(localStorage.todos) : [],
   /*
     addTodo: Adds a new todo with the specified text
@@ -21,11 +33,8 @@ export const todoSlice = create((set) => ({
     // add new todo to array of old todos
     let newTodos = [...state.todos, { text: text, id: uuidv4(), completed: false }];
 
-    // check if local storage is supported
-    if (localStorageSupport) {
-      // save todos to local storage
-      localStorage.todos = JSON.stringify(newTodos);
-    }
+    // save new state to local storage
+    saveTodosToLocal(newTodos);
 
     return { todos: newTodos };
   }),
@@ -44,11 +53,8 @@ export const todoSlice = create((set) => ({
       return todo;
     });
 
-    // check if local storage is supported
-    if (localStorageSupport) {
-      // save todos to local storage
-      localStorage.todos = JSON.stringify(newTodos);
-    }
+    // save new state to local storage
+    saveTodosToLocal(newTodos);
 
     return { todos: newTodos };
   }),
@@ -66,11 +72,8 @@ export const todoSlice = create((set) => ({
       return todo;
     });
 
-    // check if local storage is supported
-    if (localStorageSupport) {
-      // save todos to local storage
-      localStorage.todos = JSON.stringify(newTodos);
-    }
+    // save new state to local storage
+    saveTodosToLocal(newTodos);
 
     return { todos: newTodos };
   }),
@@ -83,11 +86,8 @@ export const todoSlice = create((set) => ({
     // filter through todos and keep every todo except the one the user wants deleted
     let newTodos = state.todos.filter((todo) => todo.id !== id);
 
-    // check if local storage is supported
-    if (localStorageSupport) {
-      // save todos to local storage
-      localStorage.todos = JSON.stringify(newTodos);
-    }
+    // save new state to local storage
+    saveTodosToLocal(newTodos);
 
     return { todos: newTodos };
   }),
