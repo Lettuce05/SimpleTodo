@@ -10,6 +10,19 @@ export const todoSlice = create((set) => ({
   */
   addTodo: (text) => set((state) => ({ todos: [...state.todos, { text: text, id: uuidv4(), completed: false }] })),
   /*
+    editTodo: Edits the todo according to specified user changes
+    @param id - id of todo to edit
+    @param text - text to set todo's text to
+  */
+  editTodo: (id, text) => set((state) => ({
+    todos: state.todos.map(todo => {
+      if (todo.id === id) {
+        todo.text = text;
+      }
+      return todo;
+    })
+  })),
+  /*
     setTodoStatus: Sets the status (completed/not completed) of the todo with the specified id
     @param id - id of todo to update status
   */

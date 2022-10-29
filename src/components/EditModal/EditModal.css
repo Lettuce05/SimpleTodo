@@ -48,6 +48,11 @@
   font-family: Poppins, sans-serif;
   margin-bottom: 10px;
 }
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
 /* Close button */
 .btn-close {
   width: 32px;

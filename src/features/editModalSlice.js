@@ -6,9 +6,9 @@ export const editModalSlice = create((set) => ({
   editInputText: '',
   editId: '',
   /*
-    closeModal: closes the modal (sets state.modalShown to false)
+    closeModal: closes the modal and resets modal state
   */
-  closeModal: () => set({ modalShown: false }),
+  closeModal: () => set({ modalShown: false, editInputText: '', editId: '' }),
   /*
     openModal: opens the modal (sets state.modalShown to true)
     @param id - id of todo being edited
@@ -18,5 +18,5 @@ export const editModalSlice = create((set) => ({
     setEditInputText: sets editInputText to specified text
     @param text - text to set editInputText
   */
-  setEditInputText: (text) => set({ editInputText: text}),
+  setEditInputText: (text) => set({ editInputText: text }),
 }));
