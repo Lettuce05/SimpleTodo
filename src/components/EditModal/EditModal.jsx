@@ -1,13 +1,19 @@
 import './EditModal.css';
 import { store } from '../../store';
 import { Close } from '../../Icons';
+import { NIL as NIL_UUID } from 'uuid';
 
 export default function EditModal() {
   const closeModal = store((state) => state.editModal(state => state.closeModal));
   const modalShown = store((state) => state.editModal(state => state.modalShown));
   const editInputText = store((state) => state.editModal(state => state.editInputText));
-  const setEditInputText = store((state) => state.editModal(state => state.setEditInputText));
+  const editListInput = store((state) => state.editModal(state => state.editListInput));
+  const lists = store((state) => state.todo(state => state.lists));
   const editId = store((state) => state.editModal(state => state.editId));
+
+  // get state actions from global state
+  const setEditInputText = store((state) => state.editModal(state => state.setEditInputText));
+  const setEditListInput = store((state) => state.editModal(state => state.setEditListInput));
   const editTodo = store((state) => state.todo(state => state.editTodo));
 
   /*
@@ -16,6 +22,14 @@ export default function EditModal() {
   */
   function handleInputChange(e) {
     setEditInputText(e.target.value);
+  }
+
+  /*
+    handleListChange: event handler that sets editListInput state on select change
+    @param e - event triggered
+  */
+  function handleListChange(e) {
+    setEditListInput(e.target.value);
   }
 
   /*
@@ -30,9 +44,16 @@ export default function EditModal() {
       closeModal();
     } else {
       // input is not empty so save user changes (even if they are the same)
-      editTodo(editId, editInputText.trim());
+      editTodo(editId, editInputText.trim(), editListInput);
       closeModal();
     }
+  }
+
+  // returns a new list option
+  function ListOption({ list }){
+    return (
+      <option value={list.id}>{list.name}</option>
+    )
   }
 
   return (
@@ -45,6 +66,10 @@ export default function EditModal() {
 
         <form className='modal__form'>
           <input className='modal__input' value={editInputText} onChange={handleInputChange} />
+          <select className='modal__listSelect' value={editListInput} onChange={handleListChange}>
+            <option value={NIL_UUID}>No List</option>
+            {lists.filter((list) => list.id !== NIL_UUID).map((list) => <ListOption key={list.id} list={list} />)}
+          </select>
           <button className='btn-save' onClick={handleSubmit}>Save</button>
         </form>
 

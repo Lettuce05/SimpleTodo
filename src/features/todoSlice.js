@@ -25,7 +25,7 @@ export const todoSlice = create((set) => ({
   // check local storage for initial state of todos or set to empty array if local storage todos is undefined
   todos: localStorageSupport && localStorage.todos ? JSON.parse(localStorage.todos) : [],
   // check local storage for initial state of lists or set to empty array if local storage lists is undefined
-  lists: localStorageSupport && localStorage.lists ? JSON.parse(localStorage.lists) : [{ name: 'Home', id: NIL_UUID }],
+  lists: localStorageSupport && localStorage.lists ? JSON.parse(localStorage.lists) : [{ name: 'Home', id: NIL_UUID }, { name: 'Test', id: "test", color: "#99f76a" }],
   currentListId: NIL_UUID,
 
   /*
@@ -47,13 +47,15 @@ export const todoSlice = create((set) => ({
     editTodo: Edits the todo according to specified user changes
     @param id - id of todo to edit
     @param text - text to set todo's text to
+    @param listId - listId to set todo's listId to
   */
-  editTodo: (id, text) => set((state) => {
+  editTodo: (id, text, listId) => set((state) => {
     // get new todo state
     // iterate through todos and update todo with specified id
     let newTodos = state.todos.map(todo => {
       if (todo.id === id) {
         todo.text = text;
+        todo.listId = listId;
       }
       return todo;
     });

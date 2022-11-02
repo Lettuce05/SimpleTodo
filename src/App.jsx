@@ -14,7 +14,10 @@ function App() {
     <div className="App">
       <main>
         <div className='todoListContainer'>
-          <h1>{currentList.name}</h1>
+          <h1>
+            {currentList.color ? <span className='listColor' style={{ backgroundColor: currentList.color }}></span> : null}
+            {currentList.name}
+          </h1>
           <Form />
           <TodoList />
         </div>

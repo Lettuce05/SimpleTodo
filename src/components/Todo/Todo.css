@@ -88,7 +88,7 @@
   border-radius: 5px;
   background-color: #e9e9ed;
   height: 36px;
-  weight: 36px;
+  width: 36px;
 }
 .btn:hover{
   background-color: #b8b8bc;
@@ -97,4 +97,11 @@
 
 .btn:first-child {
   margin-right: 10px;
+}
+
+.listBadge {
+  height: 20px;
+  width: 20px;
+  border-radius: 5px;
+  margin-left: 1rem;
 }
