@@ -24,8 +24,11 @@ export default function Form() {
   */
   function handleSubmit(e) {
     e.preventDefault();
-    addTodo(inputText.trim(), currentListId);
-    setInputText("");
+    if (inputText.trim()) {
+      addTodo(inputText.trim(), currentListId);
+      setInputText("");
+    }
+    // do nothing if inputText is empty
   }
 
   return (
