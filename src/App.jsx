@@ -9,6 +9,7 @@ function App() {
   const lists = store((state) => state.todo(state => state.lists));
   // get the current list
   const currentList = lists.find((list) => list.id === currentListId);
+
   return (
     <div className="App">
       <main>
