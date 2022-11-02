@@ -3,6 +3,9 @@ import { store } from '../../store';
 export default function Form() {
   // get input state from global state
   const inputText = store((state) => state.form(state => state.inputText));
+  // get currentListId from global state
+  const currentListId = store((state) => state.todo(state => state.currentListId));
+
   // get reference to state functions
   const setInputText = store((state) => state.form(state => state.setInputText));
   const addTodo = store((state) => state.todo(state => state.addTodo));
@@ -21,7 +24,7 @@ export default function Form() {
   */
   function handleSubmit(e) {
     e.preventDefault();
-    addTodo(inputText.trim());
+    addTodo(inputText.trim(), currentListId);
     setInputText("");
   }
 

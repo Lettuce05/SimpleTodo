@@ -1,5 +1,5 @@
 import create from 'zustand';
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4, NIL as NIL_UUID } from 'uuid';
 
 let localStorageSupport = false;
 
@@ -22,16 +22,21 @@ function saveTodosToLocal(todos) {
 
 // todoSlice: The slice of state that holds all state/logic associated with the todos/todolist
 export const todoSlice = create((set) => ({
-  // check local storage for initial state or set to empty array if local storage todos is undefined
+  // check local storage for initial state of todos or set to empty array if local storage todos is undefined
   todos: localStorageSupport && localStorage.todos ? JSON.parse(localStorage.todos) : [],
+  // check local storage for initial state of lists or set to empty array if local storage lists is undefined
+  lists: localStorageSupport && localStorage.lists ? JSON.parse(localStorage.lists) : [{ name: 'Home', id: NIL_UUID }],
+  currentListId: NIL_UUID,
+
   /*
     addTodo: Adds a new todo with the specified text
     @param text - todo text
   */
-  addTodo: (text) => set((state) => {
+  addTodo: (text, listId) => set((state) => {
     // get new todo state
     // add new todo to array of old todos
-    let newTodos = [...state.todos, { text: text, id: uuidv4(), completed: false }];
+    let newTodos = [...state.todos, { text, id: uuidv4(), completed: false, listId }];
+    console.log(newTodos);
 
     // save new state to local storage
     saveTodosToLocal(newTodos);
