@@ -41,7 +41,7 @@ export default function EditModal() {
 
     if (!editInputText.trim()) {
       // input is empty so don't save
-      closeModal();
+      return;
     } else {
       // input is not empty so save user changes (even if they are the same)
       editTodo(editId, editInputText.trim(), editListInput);
@@ -50,7 +50,7 @@ export default function EditModal() {
   }
 
   // returns a new list option
-  function ListOption({ list }){
+  function ListOption({ list }) {
     return (
       <option value={list.id}>{list.name}</option>
     )
