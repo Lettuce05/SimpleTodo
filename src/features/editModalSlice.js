@@ -1,6 +1,6 @@
 import create from 'zustand';
 
-// formSlice: The slice of state that holds all state/logic associated with the main form
+// editModalSlice: The slice of state that holds all state/logic associated with the EditModal 
 export const editModalSlice = create((set) => ({
   modalShown: false,
   editInputText: '',

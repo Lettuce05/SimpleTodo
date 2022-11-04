@@ -9,11 +9,13 @@ export default function Link({ list }) {
   const setCurrentListId = store(state => state.todo(state => state.setCurrentListId));
 
   let listColor = "transparent";
+  let listTodos = todos.filter((todo) => !todo.completed);
   if (list.id !== NIL_UUID) {
     listColor = list.color;
+    listTodos = todos.filter((todo) => todo.listId === list.id && !todo.completed);
   }
 
-  const listTodos = todos.filter((todo) => todo.listId === list.id && !todo.completed);
+
 
   return (
     <a className='link' onClick={() => setCurrentListId(list.id)}>
