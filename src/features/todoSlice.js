@@ -99,4 +99,10 @@ export const todoSlice = create((set) => ({
     return { todos: newTodos };
   }),
 
+  /*
+    setCurrentListId: Sets the currentListId
+    @param listId - listId to set currentListId to
+  */
+  setCurrentListId: (listId) => set({ currentListId: listId }),
+
 }));
