@@ -1,0 +1,34 @@
+.link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 36px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family: Poppins, sans-serif;
+  padding: 5px;
+}
+
+.link:hover {
+  background-color: #f4f4f7;
+}
+
+.link__info {
+  display: flex;
+  align-items: center;
+}
+
+.link__info .listColor {
+  margin: 0 10px 0 10px;
+}
+
+.link__name {
+  display: inline-block;
+}
+
+.link__todoCount {
+  color: gray;
+  background-color: #e9e9ed;
+  padding: 0 5px;
+  border-radius: 5px;
+}
