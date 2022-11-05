@@ -1,12 +1,11 @@
 import './Form.css';
 import { store } from '../../store';
 export default function Form() {
-  // get input state from global state
+  // get necessary state from global state
   const inputText = store((state) => state.form(state => state.inputText));
-  // get currentListId from global state
   const currentListId = store((state) => state.todo(state => state.currentListId));
 
-  // get reference to state functions
+  // get state actions from global state
   const setInputText = store((state) => state.form(state => state.setInputText));
   const addTodo = store((state) => state.todo(state => state.addTodo));
 

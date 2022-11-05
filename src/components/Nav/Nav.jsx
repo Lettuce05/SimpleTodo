@@ -4,9 +4,12 @@ import Link from '../Link/Link';
 import ListForm from '../ListForm/ListForm';
 
 export default function Nav() {
+  // import necessary state from global state
   const lists = store((state) => state.todo(state => state.lists));
-  const closeNav = store((state) => state.nav(state => state.closeNav));
   const open = store((state) => state.nav(state => state.open));
+  // import state action from global state
+  const closeNav = store((state) => state.nav(state => state.closeNav));
+
   return (
     <nav className={`${open ? 'nav-open' : ''}`}>
       <a className="nav__btn-close" onClick={() => closeNav()}>&times;</a>

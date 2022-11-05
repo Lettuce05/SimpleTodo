@@ -4,17 +4,19 @@ import { Close } from '../../Icons';
 import { NIL as NIL_UUID } from 'uuid';
 
 export default function EditModal() {
-  const closeModal = store((state) => state.editModal(state => state.closeModal));
-  const modalShown = store((state) => state.editModal(state => state.modalShown));
-  const editInputText = store((state) => state.editModal(state => state.editInputText));
-  const editListInput = store((state) => state.editModal(state => state.editListInput));
-  const lists = store((state) => state.todo(state => state.lists));
-  const editId = store((state) => state.editModal(state => state.editId));
-
   // get state actions from global state
+  const closeModal = store((state) => state.editModal(state => state.closeModal));
   const setEditInputText = store((state) => state.editModal(state => state.setEditInputText));
   const setEditListInput = store((state) => state.editModal(state => state.setEditListInput));
   const editTodo = store((state) => state.todo(state => state.editTodo));
+
+  // import necessary state from global state
+  const modalShown = store((state) => state.editModal(state => state.modalShown));
+  const lists = store((state) => state.todo(state => state.lists));
+  const editId = store((state) => state.editModal(state => state.editId));
+  const editInputText = store((state) => state.editModal(state => state.editInputText));
+  const editListInput = store((state) => state.editModal(state => state.editListInput));
+
 
   /*
     handleInputChange: event handler that sets editInputText state on input change

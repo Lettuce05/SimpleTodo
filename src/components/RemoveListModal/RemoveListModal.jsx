@@ -3,18 +3,22 @@ import { store } from '../../store';
 import { Close } from '../../Icons';
 
 export default function RemoveListModal() {
+  // import state actions from global state
   const closeModal = store((state) => state.removeModal(state => state.closeModal));
   const removeList = store((state) => state.todo(state => state.removeList));
+  // import necessary state from global state
   const modalShown = store((state) => state.removeModal(state => state.modalShown));
   const removeId = store((state) => state.removeModal(state => state.removeId));
   const lists = store((state) => state.todo(state => state.lists));
 
+  // get list object that corresponds with removeId
   let list = lists.find((list) => list.id === removeId);
   let listName = '';
   if(list){
     listName = list.name;
   }
 
+  // handleDelete: deletes the specified list and closes the modal
   function handleDelete(){
     removeList(removeId);
     closeModal();

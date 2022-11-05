@@ -4,7 +4,7 @@ import create from 'zustand';
 export const navSlice = create((set) => ({
   open: false,
   /*
-    closeModal: closes the nav
+    closeNav: closes the nav
   */
   closeNav: () => set({ open: false }),
   /*

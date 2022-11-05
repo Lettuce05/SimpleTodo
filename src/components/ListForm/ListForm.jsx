@@ -3,7 +3,7 @@ import './ListForm.css';
 import { store } from '../../store';
 
 export default function ListForm() {
-  // import state function from global state
+  // import state acion from global state
   const addList = store((state) => state.todo(state => state.addList));
 
   // state to hanlde form inputs

@@ -4,17 +4,18 @@ import { NIL as NIL_UUID } from 'uuid';
 import { Trash } from '../../Icons';
 
 export default function Link({ list }) {
-  // get todos from global state
+  // get necessary state from global state
   const todos = store(state => state.todo(state => state.todos));
-  // get currentList from global state
   const currentListId = store(state => state.todo(state => state.currentListId));
-  // get state function from global state
+  // get state actions from global state
   const setCurrentListId = store(state => state.todo(state => state.setCurrentListId));
   const openModal = store(state => state.removeModal(state => state.openModal));
 
+  // defaults to be used for home list
   let listColor = "transparent";
   let listTodos = todos.filter((todo) => !todo.completed);
   let isHome = true;
+  // check if current list is not the home list
   if (list.id !== NIL_UUID) {
     listColor = list.color;
     listTodos = todos.filter((todo) => todo.listId === list.id && !todo.completed);

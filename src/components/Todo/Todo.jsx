@@ -4,7 +4,7 @@ import { store } from '../../store';
 import { Trash, Pencil } from '../../Icons';
 
 export default function Todo({ todo }) {
-  // get state functions
+  // get state actions from global state
   const setTodoStatus = store((state) => state.todo(state => state.setTodoStatus));
   const removeTodo = store((state) => state.todo(state => state.removeTodo));
   const openModal = store((state) => state.editModal(state => state.openModal));
@@ -16,8 +16,10 @@ export default function Todo({ todo }) {
   // get todo's list
   let list = lists.find((list) => list.id === listId);
 
+  // set default color to use if todo's list is the home list
   let listColor = "transparent";
-  if (list.id !== NIL_UUID) {
+  // check if list is not home list and set listColor
+  if (list && list.id !== NIL_UUID) {
     listColor = list.color;
   }
 
