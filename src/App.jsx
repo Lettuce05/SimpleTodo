@@ -3,6 +3,7 @@ import { store } from './store';
 import Form from './components/Form/Form';
 import TodoList from './components/TodoList/TodoList';
 import EditModal from './components/EditModal/EditModal';
+import RemoveListModal from './components/RemoveListModal/RemoveListModal';
 import Nav from './components/Nav/Nav';
 import { Menu } from './Icons';
 
@@ -29,7 +30,7 @@ function App() {
         <Form />
         <TodoList />
       </div>
-
+      <RemoveListModal />
       <EditModal />
     </main>
   )

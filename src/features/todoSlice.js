@@ -121,4 +121,27 @@ export const todoSlice = create((set) => ({
     return { lists: newLists };
   }),
 
+  /*
+    removeList: Removes the list with the specified id
+    @param id - id of list to delete
+  */
+  removeList: (id) => set((state) => {
+    // get new lists state
+    // filter through lists and keep every list except the one the user wants deleted
+    let newLists = state.lists.filter((list) => list.id !== id);
+    // remove all todos belonging to list being deleted
+    let newTodos = state.todos.filter((todo) => todo.listId !== id);
+    // save new state to local storage
+    saveToLocal('lists', newLists);
+    saveToLocal('todos', newTodos);
+
+    // if currentListId is the id of the list we are removing then set currentListId to Home list id
+    let newCurrentListId = id;
+    if (id === state.currentListId){
+      newCurrentListId = NIL_UUID;
+    }
+
+    return { lists: newLists, todos: newTodos, currentListId: newCurrentListId };
+  }),
+
 }));
