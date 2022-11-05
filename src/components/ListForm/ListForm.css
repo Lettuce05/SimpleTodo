@@ -1,0 +1,40 @@
+.listForm {
+  display: flex;
+/*   align-items: center; */
+  background-color: #dfe1e5;
+  border-radius: 10px;
+}
+
+.listForm__name {
+  appearance: none;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-family: Poppins, sans-serif;
+  padding: .5rem;
+  
+}
+
+.listForm__color {
+  border: none;
+  background-color: #f3f3f5;
+  height: 36px;
+}
+
+.listForm__color:hover {
+  background-color: #b8b8bc;
+  cursor: pointer;
+}
+
+.listForm button {
+  background-color: #f3f3f5;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  font-size: 16px;
+  padding: .5rem;
+}
+
+.listForm button:hover {
+  background-color: #b8b8bc;
+  cursor: pointer;
+}

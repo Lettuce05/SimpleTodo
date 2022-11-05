@@ -1,6 +1,7 @@
 import './Nav.css';
 import { store } from '../../store';
 import Link from '../Link/Link';
+import ListForm from '../ListForm/ListForm';
 
 export default function Nav() {
   const lists = store((state) => state.todo(state => state.lists));
@@ -11,6 +12,7 @@ export default function Nav() {
       <a className="nav__btn-close" onClick={() => closeNav()}>&times;</a>
       <div className="nav__linkContainer">
         {lists.map((list) => <Link key={list.id} list={list} />)}
+        <ListForm />
       </div>
     </nav>
   )

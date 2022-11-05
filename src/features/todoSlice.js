@@ -9,14 +9,15 @@ if (typeof (Storage) !== "undefined") {
 }
 
 /*
-  saveTodosToLocal: saves specified todos to local storage
-  @param todos - todos to save to local storage
+  saveToLocal: saves specified object to local storage
+  @param key - key in local storage
+  @param object - object to save into local storage
 */
-function saveTodosToLocal(todos) {
+function saveToLocal(key, object) {
   // check if local storage is supported
   if (localStorageSupport) {
-    // save todos to local storage
-    localStorage.todos = JSON.stringify(todos);
+    // save object to local storage
+    localStorage.setItem(key, JSON.stringify(object));
   }
 }
 
@@ -25,7 +26,7 @@ export const todoSlice = create((set) => ({
   // check local storage for initial state of todos or set to empty array if local storage todos is undefined
   todos: localStorageSupport && localStorage.todos ? JSON.parse(localStorage.todos) : [],
   // check local storage for initial state of lists or set to empty array if local storage lists is undefined
-  lists: localStorageSupport && localStorage.lists ? JSON.parse(localStorage.lists) : [{ name: 'Home', id: NIL_UUID }, { name: 'Test', id: "test", color: "#99f76a" }],
+  lists: localStorageSupport && localStorage.lists ? JSON.parse(localStorage.lists) : [{ name: 'Home', id: NIL_UUID }],
   currentListId: NIL_UUID,
 
   /*
@@ -36,10 +37,9 @@ export const todoSlice = create((set) => ({
     // get new todo state
     // add new todo to array of old todos
     let newTodos = [...state.todos, { text, id: uuidv4(), completed: false, listId }];
-    console.log(newTodos);
 
     // save new state to local storage
-    saveTodosToLocal(newTodos);
+    saveToLocal('todos', newTodos);
 
     return { todos: newTodos };
   }),
@@ -61,7 +61,7 @@ export const todoSlice = create((set) => ({
     });
 
     // save new state to local storage
-    saveTodosToLocal(newTodos);
+    saveToLocal('todos', newTodos);
 
     return { todos: newTodos };
   }),
@@ -80,7 +80,7 @@ export const todoSlice = create((set) => ({
     });
 
     // save new state to local storage
-    saveTodosToLocal(newTodos);
+    saveToLocal('todos', newTodos);
 
     return { todos: newTodos };
   }),
@@ -94,7 +94,7 @@ export const todoSlice = create((set) => ({
     let newTodos = state.todos.filter((todo) => todo.id !== id);
 
     // save new state to local storage
-    saveTodosToLocal(newTodos);
+    saveToLocal('todos', newTodos);
 
     return { todos: newTodos };
   }),
@@ -104,5 +104,21 @@ export const todoSlice = create((set) => ({
     @param listId - listId to set currentListId to
   */
   setCurrentListId: (listId) => set({ currentListId: listId }),
+
+  /*
+    addList: Adds a new list with the specified name and color
+    @param name - list name
+    @param color - list color
+  */
+  addList: (name, color) => set((state) => {
+    // get new list state
+    // add new list to array of old lists
+    let newLists = [...state.lists, { name, id: uuidv4(), color }];
+
+    // save new state to local storage
+    saveToLocal('lists', newLists);
+
+    return { lists: newLists };
+  }),
 
 }));
