@@ -10,6 +10,7 @@ nav {
   transition: 0.5s;
   border-radius: 20px;
   margin: 20px;
+  border: #f2f4f4 1px solid;
 }
 
 .nav__btn-close {

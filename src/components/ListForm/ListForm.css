@@ -1,6 +1,5 @@
 .listForm {
   display: flex;
-/*   align-items: center; */
   background-color: #dfe1e5;
   border-radius: 10px;
 }
@@ -12,13 +11,14 @@
   background-color: transparent;
   font-family: Poppins, sans-serif;
   padding: .5rem;
-  
+  flex: 1;
 }
 
 .listForm__color {
   border: none;
   background-color: #f3f3f5;
   height: 36px;
+  width: 22px;
 }
 
 .listForm__color:hover {

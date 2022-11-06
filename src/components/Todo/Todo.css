@@ -89,6 +89,7 @@
   background-color: #e9e9ed;
   height: 36px;
   width: 36px;
+  padding: 0;
 }
 .btn:hover{
   background-color: #b8b8bc;
