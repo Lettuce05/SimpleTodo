@@ -35,5 +35,12 @@ https://user-images.githubusercontent.com/61034923/200153009-c28c6e9d-1671-4f8a-
 https://user-images.githubusercontent.com/61034923/200152863-a965c850-9f22-4c86-8ad9-691f353c857b.mov
 
 
+## Project Stack
+
+- React
+- Zustand (for handling global state)
+- Vite
+- Vitest (for testing)
+
 
 
