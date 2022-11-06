@@ -1,6 +1,6 @@
 # SimpleTodo
 
-A minimal yet fully featured todo list.
+A minimal yet fully featured todo list. [Live](https://simpletodo.anthonyromaine.com/)
 
 This project aims to go beyond the usual basic todo project, features beyond a normal todo project include:
 
