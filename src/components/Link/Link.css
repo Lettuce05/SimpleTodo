@@ -9,6 +9,10 @@
   padding: 5px;
 }
 
+.link-active {
+  background-color: #f4f4f7;
+}
+
 .link:hover {
   background-color: #f4f4f7;
 }

@@ -25,7 +25,7 @@ export default function Link({ list }) {
 
 
   return (
-    <a className='link' onClick={() => setCurrentListId(list.id)} style={{ backgroundColor: list.id === currentListId ? '#f4f4f7' : '' }}>
+    <a className={`link ${list.id === currentListId ? 'link-active' : ''}`} onClick={() => setCurrentListId(list.id)}>
       <div className='link__info'>
         <span className='listColor' style={{ backgroundColor: listColor }}></span>
         <span className='link__name'>{list.name}</span>
