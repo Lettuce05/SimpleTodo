@@ -2,6 +2,8 @@
 
 A minimal yet fully featured todo list. [Live](https://simpletodo.anthonyromaine.com/)
 
+NOTE: Styles have only been tested on Firefox and Chrome
+
 This project aims to go beyond the usual basic todo project, features beyond a normal todo project include:
 
 - Persistence (via Local Storage)
